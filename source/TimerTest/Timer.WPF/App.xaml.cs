@@ -40,13 +40,13 @@ namespace MyTimer.WPF
 
 		protected override async void OnExit(ExitEventArgs e)
 		{
-			await Host!.StopAsync();
+			await Host.StopAsync();
 			base.OnExit(e);
 		}
 
-		protected override async void OnStartup(StartupEventArgs e)
+		protected override void OnStartup(StartupEventArgs e)
 		{
-			await Host!.StartAsync();
+			//await Host.StartAsync();
 
 			var wnd = Host.Services.GetRequiredService<wndMain>();
 

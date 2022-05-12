@@ -6,13 +6,24 @@
         mc:Ignorable="d" FontFamily="Segoe UI Semibold" FontSize="14"
         Title="MainWindow" Height="450" Width="800">
 	<Grid>
+		<Grid.Resources>
+			<Style TargetType="{x:Type Button}">
+				<Setter Property="Foreground"	Value="White"/>
+				<Setter Property="Background"	Value="#993333"/>
+				<Setter Property="HorizontalAlignment"	Value="Left"/>
+				<Setter Property="Margin"	Value="20"/>
+				<Setter Property="Padding"	Value="5,2"/>
+				<Setter Property="Cursor" Value="Hand"/>
+			</Style>
+		</Grid.Resources>
 		<StackPanel>
-			<Button Content="Start Timer" Command="{Binding CommandStartTimer}"
-							HorizontalAlignment="Left" Margin="20" Padding="5,2" Background="#993333"
-							Foreground="White"/>
+			<StackPanel Orientation="Horizontal">
+				<Button Content="Start Timer" Command="{Binding CommandStartTimer}"/>
+				<Button Content="End Timer" Command="{Binding CommandEndTimer}"/>
+			</StackPanel>
 			<TextBlock Text="{Binding Path=StatusMessage, FallbackValue='This is a Message'}"
-								 TextWrapping="Wrap" FontSize="18" Background="#aaaaaa" Margin="20,0"
-								 Padding="10,0"/>
+								 TextWrapping="Wrap" FontSize="18" Background="#AAAAAA" Margin="20,0"
+								 Padding="10,2"/>
 		</StackPanel>
 	</Grid>
 </Window>

@@ -6,7 +6,7 @@ Console.WriteLine($"{DateTime.Now:h:mm:ss.ff} Creating timer. \n");
 Timer? timer = new(checker.Check,
 										autoEvent,
 										TimeSpan.FromSeconds(1),
-										TimeSpan.FromSeconds(0.125));
+										TimeSpan.FromSeconds(0.5));
 
 
 // When autoEvent signals the second time, dispose of the timer.

@@ -11,7 +11,7 @@ namespace MyTimer.WPF.Services
 {
 	public class TimerService : IHostedService
 	{
-		Timer? timer;
+		Timer timer;
 
 		public Task StartAsync(CancellationToken cancellationToken)
 		{

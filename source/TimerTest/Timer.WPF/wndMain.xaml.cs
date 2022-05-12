@@ -18,9 +18,9 @@ namespace MyTimer.WPF
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class wndMain : Window
 	{
-		public MainWindow()
+		public wndMain()
 		{
 			InitializeComponent();
 		}

@@ -6,11 +6,11 @@ Console.WriteLine($"{DateTime.Now:h:mm:ss.ff} Creating timer. \n");
 Timer? timer = new(checker.Check,
 										autoEvent,
 										TimeSpan.FromSeconds(1),
-										TimeSpan.FromSeconds(0.25));
+										TimeSpan.FromSeconds(0.125));
 
 
 // When autoEvent signals the second time, dispose of the timer.
-//autoEvent.WaitOne();
+autoEvent.WaitOne();
 timer.Dispose();
 Console.WriteLine("\nDestroying timer.");
 
@@ -33,7 +33,7 @@ class Checker
 		if (invokeCount == maxCount)
 		{
 			invokeCount = 0;
-			//autoEvent.Set();
+			autoEvent.Set();
 		}
 	}
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Timer.WPF
+namespace MyTimer.WPF
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml

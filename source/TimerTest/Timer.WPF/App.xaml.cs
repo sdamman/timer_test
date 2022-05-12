@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Timer.WPF
+namespace MyTimer.WPF
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

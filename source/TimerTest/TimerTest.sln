@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timer.Console", "Timer.Console\Timer.Console.csproj", "{58522E4D-6244-4AFB-8B15-F01B768DA265}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTimer.Console", "Timer.Console\MyTimer.Console.csproj", "{58522E4D-6244-4AFB-8B15-F01B768DA265}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timer.WPF", "Timer.WPF\Timer.WPF.csproj", "{07C8FD06-B53B-4400-AE0C-42629D15FBA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTimer.WPF", "Timer.WPF\MyTimer.WPF.csproj", "{07C8FD06-B53B-4400-AE0C-42629D15FBA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

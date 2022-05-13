@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyTimer.Data.Models;
+using MyTimer.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace MyTimer.Data.Contexts
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(@"Data Source=localhost\\PIGCHAMPDATA;Initial Catalog=TimerTest;Trusted_Connection=True;");
+			optionsBuilder.UseSqlServer(Connection.Text);
 		}
 
 	}

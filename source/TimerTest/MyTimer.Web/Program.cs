@@ -1,14 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using MyTimer.Data.Contexts;
-
+using MyTimer.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-var conString = builder.Configuration.GetConnectionString("Logging");
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<MtDbContext>(options =>
-	options.UseSqlServer(conString));
+	options.UseSqlServer(Connection.Text));
 
 var app = builder.Build();
 

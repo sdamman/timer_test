@@ -13,7 +13,8 @@ namespace MyTimer.WPF
 {
 	public class ViewModelMain : ViewModelBase
 	{
-		TimerService tService = new TimerService();
+		//TimerService tService = new TimerService();
+		readonly SimpleTimerService tService = new();
 
 		private string statusMessage = null;
 		public string StatusMessage
@@ -60,19 +61,19 @@ namespace MyTimer.WPF
 		}
 
 
-		private void StartTimer()
+		private async void StartTimer()
 		{
 			//TestClass1 tc = new();
 			//StatusMessage += "\ntesting";
 			//StatusMessage = tc.GetSomethingBack(this);
-			tService.StartTimer(this);
+			await tService.StartSimple(this);
 		}
 
 		private void EndTimer()
 		{
-			CancellationTokenSource source = new();
-			CancellationToken token = source.Token;
-			tService.StopAsync(token);
+			//CancellationTokenSource source = new();
+			//CancellationToken token = source.Token;
+			//tService.StopAsync(token);
 		}
 
 

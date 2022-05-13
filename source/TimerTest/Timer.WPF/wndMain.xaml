@@ -21,9 +21,11 @@
 				<Button Content="Start Timer" Command="{Binding CommandStartTimer}"/>
 				<Button Content="End Timer" Command="{Binding CommandEndTimer}"/>
 			</StackPanel>
-			<TextBlock Text="{Binding Path=StatusMessage, FallbackValue='This is a Message'}"
-								 TextWrapping="Wrap" FontSize="18" Background="#AAAAAA" Margin="20,0"
+			<ScrollViewer Margin="20,0" VerticalScrollBarVisibility="Auto" MaxHeight="300">
+				<TextBlock Text="{Binding Path=StatusMessage, FallbackValue='This is a Message'}"
+								 TextWrapping="Wrap" FontSize="18" Background="#AAAAAA" 
 								 Padding="10,2"/>
+			</ScrollViewer>
 		</StackPanel>
 	</Grid>
 </Window>

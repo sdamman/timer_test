@@ -5,7 +5,11 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTimer.Console", "Timer.Console\MyTimer.Console.csproj", "{58522E4D-6244-4AFB-8B15-F01B768DA265}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTimer.WPF", "Timer.WPF\MyTimer.WPF.csproj", "{07C8FD06-B53B-4400-AE0C-42629D15FBA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTimer.WPF", "Timer.WPF\MyTimer.WPF.csproj", "{07C8FD06-B53B-4400-AE0C-42629D15FBA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTimer.Web", "MyTimer.Web\MyTimer.Web.csproj", "{9A5C7709-7BB2-45DD-8F30-A44590E53E4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTimer.Data", "MyTimer.Data\MyTimer.Data.csproj", "{E2EFE156-F8E4-4441-8DF3-EDC4514A3E30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{07C8FD06-B53B-4400-AE0C-42629D15FBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07C8FD06-B53B-4400-AE0C-42629D15FBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07C8FD06-B53B-4400-AE0C-42629D15FBA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A5C7709-7BB2-45DD-8F30-A44590E53E4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A5C7709-7BB2-45DD-8F30-A44590E53E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A5C7709-7BB2-45DD-8F30-A44590E53E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A5C7709-7BB2-45DD-8F30-A44590E53E4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2EFE156-F8E4-4441-8DF3-EDC4514A3E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2EFE156-F8E4-4441-8DF3-EDC4514A3E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2EFE156-F8E4-4441-8DF3-EDC4514A3E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2EFE156-F8E4-4441-8DF3-EDC4514A3E30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

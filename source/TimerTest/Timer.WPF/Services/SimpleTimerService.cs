@@ -10,27 +10,28 @@ namespace MyTimer.WPF.Services
 	public class SimpleTimerService
 	{
 		private AutoResetEvent autoEvent = new(false);
-		private int invokeCount = 0;
+		private int invokeCount;
 		private ViewModelMain modelMain;
 
-		public void StartSimple(ViewModelMain vmm)
+		public Task StartSimple(ViewModelMain vmm)
 		{
+			invokeCount = 0;
 			modelMain = vmm;
 			modelMain.StatusMessage += $"{DateTime.Now:h:mm:ss.ff} Creating timer. \n";
-
-			Timer timer = new(Check,
-													autoEvent,
-													TimeSpan.FromSeconds(1),
-													TimeSpan.FromSeconds(0.5));
-
-			autoEvent.WaitOne();
-			timer.Dispose();
-			modelMain.StatusMessage += $"{DateTime.Now:h:mm:ss.ff} \nDestroying timer.";
+			void action()
+			{
+				Timer timer = new(Check, autoEvent,
+													TimeSpan.FromSeconds(0), TimeSpan.FromSeconds(1));
+			}
+			//timer.Dispose();
+			//modelMain.StatusMessage += $"{DateTime.Now:h:mm:ss.ff} \nDestroying timer.";
+			Task.Run(action);
+			return Task.CompletedTask;
 		}
 
-		public void Check(Object stateInfo)
+		private void Check(Object stateInfo)
 		{
-			AutoResetEvent autoEvent = (AutoResetEvent)stateInfo;
+			autoEvent.Set();
 			modelMain.StatusMessage += $"{DateTime.Now:h:mm:ss.ff} Checking status {++invokeCount}\n";
 
 			//if (invokeCount == maxCount)
@@ -39,6 +40,7 @@ namespace MyTimer.WPF.Services
 			//	autoEvent.Set();
 			//}
 		}
+
 
 
 	}

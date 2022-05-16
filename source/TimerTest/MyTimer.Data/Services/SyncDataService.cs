@@ -6,21 +6,21 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AVI_Data.Services
+namespace MyTimer.Data.Services
 {
 	public class SyncDataService : IHostedService
 	{
+		private readonly ITimerRepository _timerRepository;
 		Timer timer;
-		//private readonly IAgRepository _agRepository;
 
-		public SyncDataService()
+		public SyncDataService(ITimerRepository timerRepository)
 		{
-			//_agRepository = agRepository;
+			_timerRepository = timerRepository;
 		}
 
 		public Task StartAsync(CancellationToken cancellationToken)
 		{
-			TimeSpan interval = TimeSpan.FromHours(24);
+			TimeSpan interval = TimeSpan.FromMinutes(5);
 			// Next run time is calculated as the next midnight to occur.  DateTime.Today is today's
 			// date at midnight.  Adding one day to that makes it midnight tomorrow.
 			var nextRunTime = DateTime.Today.AddDays(1);
@@ -29,10 +29,6 @@ namespace AVI_Data.Services
 
 			void action()
 			{
-				var t1 = Task.Delay(firstInterval, cancellationToken);
-				t1.Wait(cancellationToken);
-				SyncData(null);
-
 				timer = new(SyncData,
 										null,
 										TimeSpan.Zero,
@@ -51,6 +47,7 @@ namespace AVI_Data.Services
 
 		private async void SyncData(Object stateInfo)
 		{
+			await _timerRepository.Log($"Log Message: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
 		}
 
 

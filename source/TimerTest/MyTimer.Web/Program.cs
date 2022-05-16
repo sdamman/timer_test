@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MyTimer.Data;
 using MyTimer.Data.Contexts;
 using MyTimer.Data.Services;
 
@@ -6,8 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<ITimerRepository, TimerRepository>();
 builder.Services.AddDbContext<MtDbContext>(options =>
-	options.UseSqlServer(Connection.Text));
+	options.UseSqlServer(Connection.Text), ServiceLifetime.Singleton);
+builder.Services.AddHostedService<SyncDataService>();
 
 var app = builder.Build();
 
@@ -32,4 +36,9 @@ app.Run();
 
 
 
+/*
+ builder.Services.AddSingleton<IAgRepository, AgRepository>();
+builder.Services.AddDbContext<AgDbContext>(options =>
+		options.UseSqlServer(Connection.Text), ServiceLifetime.Singleton);
 
+ */

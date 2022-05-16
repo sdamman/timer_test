@@ -23,7 +23,7 @@ namespace MyTimer.Data.Services
 			TimeSpan interval = TimeSpan.FromSeconds(23);
 			// Next run time is calculated as the next midnight to occur.  DateTime.Today is today's
 			// date at midnight.  Adding one day to that makes it midnight tomorrow.
-			var firstInterval = TimeSpan.FromMinutes(4);
+			var firstInterval = TimeSpan.FromSeconds(11);
 
 			void action()
 			{

@@ -20,15 +20,17 @@ namespace MyTimer.Data.Services
 
 		public Task StartAsync(CancellationToken cancellationToken)
 		{
-			TimeSpan interval = TimeSpan.FromMinutes(5);
+			TimeSpan interval = TimeSpan.FromSeconds(23);
 			// Next run time is calculated as the next midnight to occur.  DateTime.Today is today's
 			// date at midnight.  Adding one day to that makes it midnight tomorrow.
-			var nextRunTime = DateTime.Today.AddDays(1);
-			var curTime = DateTime.Now;
-			var firstInterval = nextRunTime.Subtract(curTime);
+			var firstInterval = TimeSpan.FromMinutes(4);
 
 			void action()
 			{
+				SyncData(null);
+				var t1 = Task.Delay(firstInterval, cancellationToken);
+				t1.Wait(cancellationToken);
+
 				timer = new(SyncData,
 										null,
 										TimeSpan.Zero,

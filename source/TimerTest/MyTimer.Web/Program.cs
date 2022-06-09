@@ -8,9 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddSingleton<ITimerRepository, TimerRepository>();
+builder.Services.AddScoped<ITimerRepository, TimerRepository>();
+
 builder.Services.AddDbContext<MtDbContext>(options =>
-	options.UseSqlServer(Connection.Text), ServiceLifetime.Singleton);
+	options.UseSqlServer(Connection.Text), ServiceLifetime.Scoped);
+
+
 builder.Services.AddHostedService<SyncDataService>();
 
 var app = builder.Build();

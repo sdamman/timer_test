@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
+using MyTimer.Data.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +11,18 @@ namespace MyTimer.Data.Services
 {
 	public class SyncDataService : IHostedService
 	{
-		private readonly ITimerRepository _timerRepository;
 		Timer timer;
 
-		public SyncDataService(ITimerRepository timerRepository)
+		public SyncDataService()
 		{
-			_timerRepository = timerRepository;
 		}
 
 		public Task StartAsync(CancellationToken cancellationToken)
 		{
-			TimeSpan interval = TimeSpan.FromSeconds(23);
+			TimeSpan interval = TimeSpan.FromSeconds(10);
 			// Next run time is calculated as the next midnight to occur.  DateTime.Today is today's
 			// date at midnight.  Adding one day to that makes it midnight tomorrow.
-			var firstInterval = TimeSpan.FromSeconds(11);
+			var firstInterval = TimeSpan.FromSeconds(5);
 
 			void action()
 			{
@@ -49,7 +48,9 @@ namespace MyTimer.Data.Services
 
 		private async void SyncData(Object stateInfo)
 		{
-			await _timerRepository.Log($"Log Message: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+			MtDbContext context = new();
+			TimerRepository repo = new(context);
+			await repo.Log($"Log Message: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
 		}
 
 
